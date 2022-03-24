@@ -1,0 +1,25 @@
+@import '../styles/variables.scss';
+
+.asset-details {
+    height: 100%;
+    overflow: auto;
+    background-color: $page-bg;
+
+    display: grid;
+    column-gap: 32px;
+    grid-template-rows: max-content 1fr;
+    grid-template-columns: max-content 1fr max-content;
+
+    .header {
+        grid-column-start: 1;
+        grid-column-end: span 3;
+    }
+
+    .calendar {
+        margin-top: 32px;
+    }
+
+    .overview {
+        margin-top: 32px;
+    }
+}

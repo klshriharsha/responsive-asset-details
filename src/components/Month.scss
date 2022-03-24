@@ -1,0 +1,19 @@
+.month {
+    width: 100%;
+    height: 100%;
+    border-collapse: collapse;
+
+    td,
+    th {
+        padding: 10px;
+        text-align: center;
+    }
+
+    th {
+        border-bottom: 1px solid #cdd4e3;
+    }
+
+    caption {
+        height: 25px;
+    }
+}
