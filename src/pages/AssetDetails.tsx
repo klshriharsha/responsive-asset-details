@@ -7,17 +7,26 @@ import { Header } from '../components/Header'
 import { Overview } from '../components/Overview'
 import { VerticalNav } from '../components/VerticalNav'
 
-export function AssetDetails() {
+interface AssetDetailsProps {
+    option: number
+}
+
+export function AssetDetails({ option }: AssetDetailsProps) {
     const queryList = useRef<MediaQueryList>()
 
     const [ovExpanded, setOvExpanded] = useState(true)
     const [queryMatch, setQueryMatch] = useState(false)
     const [navExpanded, setNavExpanded] = useState(false)
 
-    const handleQueryChange = useCallback((e: MediaQueryListEvent) => {
-        setQueryMatch(e.matches)
-        setOvExpanded(e.matches)
-    }, [])
+    const handleQueryChange = useCallback(
+        (e: MediaQueryListEvent) => {
+            setQueryMatch(e.matches)
+            if (option === 1) {
+                setOvExpanded(e.matches)
+            }
+        },
+        [option],
+    )
 
     useEffect(() => {
         queryList.current = window.matchMedia(`(min-width: ${navExpanded ? '1495px' : '1337px'})`)
@@ -29,8 +38,6 @@ export function AssetDetails() {
             queryList.current?.removeEventListener('change', handleQueryChange)
         }
     }, [handleQueryChange, navExpanded])
-
-    console.log({ ovExpanded, navExpanded })
 
     return (
         <div className="asset-details">

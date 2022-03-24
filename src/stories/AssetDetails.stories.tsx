@@ -10,4 +10,8 @@ export default {
 
 const Template: ComponentStory<typeof AssetDetails> = args => <AssetDetails {...args} />
 
-export const Main = Template.bind({})
+export const Option1 = Template.bind({})
+Option1.args = { option: 1 }
+
+export const Option2 = Template.bind({})
+Option2.args = { option: 2 }
